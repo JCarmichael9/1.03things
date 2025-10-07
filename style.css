@@ -20,13 +20,14 @@ header{
 
 /* Output box */
 #out{
-  min-height:8rem;
+  min-height:2rem;
   background-color:#fef3c7; /* warm tan */
 }
 
 /* Hover highlight for the dblclick card (very visible) */
 .hoverable{
   transition:box-shadow .15s ease, transform .05s ease, background-color .15s ease, border-color .15s ease;
+  user-select: none;
 }
 .hoverable.activated{
   background-color:#fee2e2;            /* light red background */
@@ -86,4 +87,13 @@ header{
   color:#6b7280;
   text-align:center;
   margin-top:.25rem;
+}
+
+
+
+.lebroooooon {
+  background-color:#fee2e2;  
+  border:2px solid #dc2626;
+  box-shadow:0 0 0 0.25rem rgba(220,38,38,.25);
+  transform:translateY(-2px);
 }

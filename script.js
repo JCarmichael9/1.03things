@@ -7,18 +7,37 @@ function render (html) {
    Demo 1: Click (counter)
 -------------------------------- */
 let clickCount = 0
-
+document.getElementById('btnClick').addEventListener('click', () => {
+   clickCount++
+   render(`u clicked <strong>${clickCount}</strong> times`)
+})
 
 /* --------------------------------------
    Demo 2: Double-click (toggle highlight)
 --------------------------------------- */
-
+let dblClickCard = document.getElementById('dblCard')
+dblClickCard.addEventListener('dblclick', () => {
+dblClickCard.classList.toggle('lebroooooon')
+const state = dblClickCard.classList.contains('lebroooooon') ? 'on' : 'off'
+render(`dbl click <strong>${state}</strong>`)
+})
 
 /* --------------------------------
    Demo 3: Keypress (show key/code)
 --------------------------------- */
+const kbKey = document.getElementById('kbKey') 
+const kbCode = document.getElementById('kbCode')
 
+document.addEventListener('keydown', e => {
+kbKey.textContent = e.key === ' ' ? ('space') : e.key
+kbCode.textContent = e.code
+}
+)
 
+document.addEventListener('keyup', () => {
+kbCode.textContent = ''
+kbKey.textContent = ''
+})
 /* ----------------------------------------
    Demo 4: Show Time (12-hour format + day)
 ----------------------------------------- */
@@ -28,6 +47,7 @@ let clickCount = 0
    Utility: Clear output
 -------------------------- */
 document.getElementById('btnClear').addEventListener('click', () => {
+   clickCount = 0
   render('<span class="text-secondary">Output cleared.</span>')
 })
 
@@ -55,3 +75,14 @@ document.getElementById('btnClear').addEventListener('click', () => {
    - On focus: add a border/shadow class to the input
    - On blur: remove those classes and make sure #out shows the right message
 ================================================== */
+
+let state = 0
+let hoverCard = document.getElementById('hoverCard')
+hoverCard.addEventListener('mouseenter', () => {
+hoverCard.classList.add('lebroooooon')
+state++
+render(`entered <strong>${state}</strong> times`)
+})
+hoverCard.addEventListener('mouseleave', () => {
+hoverCard.classList.remove('lebroooooon')
+})

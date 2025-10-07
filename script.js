@@ -19,6 +19,8 @@ let dblClickCard = document.getElementById('dblCard')
 dblClickCard.addEventListener('dblclick', () => {
 dblClickCard.classList.toggle('lebroooooon')
 const state = dblClickCard.classList.contains('lebroooooon') ? 'on' : 'off'
+hoverCount = 0
+clickCount = 0 
 render(`dbl click <strong>${state}</strong>`)
 })
 
@@ -48,6 +50,8 @@ kbKey.textContent = ''
 -------------------------- */
 document.getElementById('btnClear').addEventListener('click', () => {
    clickCount = 0
+   hoverCount = 0
+   state = 0
   render('<span class="text-secondary">Output cleared.</span>')
 })
 
@@ -76,11 +80,11 @@ document.getElementById('btnClear').addEventListener('click', () => {
    - On blur: remove those classes and make sure #out shows the right message
 ================================================== */
 
-let state = 0
+let hoverCount = 0
 let hoverCard = document.getElementById('hoverCard')
 hoverCard.addEventListener('mouseenter', () => {
 hoverCard.classList.add('lebroooooon')
-state++
+hoverCount++
 render(`entered <strong>${state}</strong> times`)
 })
 hoverCard.addEventListener('mouseleave', () => {
